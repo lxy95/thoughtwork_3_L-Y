@@ -10,10 +10,9 @@ import java.awt.event.ActionListener;
 import java.util.concurrent.TimeUnit;
 
 public class MainPanel extends JFrame{
-    private JButton openFileBtn = new JButton("file");
-    private JButton startGameBtn = new JButton("开始");
-    private JButton stopGameBtn = new JButton("结束");
-    private JLabel durationPromtLabel = new JLabel("动画间隔设置(ms为单位)");
+    private JButton openFileBtn = new JButton("Select file");
+    private JButton startGameBtn = new JButton("Start");
+    private JLabel durationPromtLabel = new JLabel("Intermittent time");
     private JTextField durationTextField = new JTextField();
     /**
      * 游戏是否开始的标志
@@ -26,7 +25,7 @@ public class MainPanel extends JFrame{
     private boolean stop = false;
 
     private CellMatrix cellMatrix;
-    private JPanel buttonPanel = new JPanel(new GridLayout(1, 9));
+    private JPanel buttonPanel = new JPanel(new GridLayout(2, 2));
     private JPanel gridPanel = new JPanel();
 
     private JTextField[][] textMatrix;
@@ -41,20 +40,20 @@ public class MainPanel extends JFrame{
     private int duration = DEFAULT_DURATION;
 
     public MainPanel() {
-        setTitle("生命游戏");
+        setTitle("Game of Life");
         openFileBtn.addActionListener(new OpenFileActioner());
         startGameBtn.addActionListener(new StartGameActioner());
 
         buttonPanel.add(openFileBtn);
         buttonPanel.add(startGameBtn);
-        buttonPanel.add(stopGameBtn);
+        durationPromtLabel.setHorizontalAlignment(SwingConstants.CENTER);
         buttonPanel.add(durationPromtLabel);
         buttonPanel.add(durationTextField);
         buttonPanel.setBackground(Color.WHITE);
 
         getContentPane().add("North", buttonPanel);
 
-        this.setSize(1500, 1000);
+        this.setSize(1000, 1000);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -70,7 +69,7 @@ public class MainPanel extends JFrame{
 
                 isStart = false;
                 stop = true;
-                startGameBtn.setText("开始游戏");
+                startGameBtn.setText("Start");
 
                 String filepath = fcDlg.getSelectedFile().getPath();
                 cellMatrix = Util.initMatrixFromFile(filepath);
@@ -130,11 +129,11 @@ public class MainPanel extends JFrame{
                 new Thread(new GameControlTask()).start();
                 isStart = true;
                 stop = false;
-                startGameBtn.setText("暂停游戏");
+                startGameBtn.setText("Stop");
             } else {
                 stop = true;
                 isStart = false;
-                startGameBtn.setText("开始游戏");
+                startGameBtn.setText("Start");
             }
         }
     }
