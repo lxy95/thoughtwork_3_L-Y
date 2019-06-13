@@ -3,9 +3,6 @@ package ui;
 import ui.common.DataType;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 public class MainControlPanel extends JPanel {
@@ -26,9 +23,7 @@ public class MainControlPanel extends JPanel {
 
         buildPanel();
     }
-    /**
-     * Create the panel.
-     */
+
     public void buildPanel() {
 
         GridBagLayout gridBagLayout = new GridBagLayout();
@@ -80,7 +75,6 @@ public class MainControlPanel extends JPanel {
         add(dataTypeComboBox, gbc_dataTypeComboBox);
 
         startPauseButton = new JButton("Start");
-        //startPauseButton.setFont(new Font("微软雅黑",Font.PLAIN,20));
         startPauseButton.setMaximumSize(new Dimension(200, 23));
         startPauseButton.setPreferredSize(new Dimension(100, 23));
         GridBagConstraints gbc_startPauseButton = new GridBagConstraints();
@@ -90,7 +84,7 @@ public class MainControlPanel extends JPanel {
         gbc_startPauseButton.gridy = 2;
         panel_1.add(startPauseButton, gbc_startPauseButton);
 
-        stepButton = new JButton("Step");
+        stepButton = new JButton("Next");
         GridBagConstraints gbc_stepButton = new GridBagConstraints();
         gbc_stepButton.fill = GridBagConstraints.HORIZONTAL;
         gbc_stepButton.insets = new Insets(0, 0, 5, 5);
@@ -125,7 +119,7 @@ public class MainControlPanel extends JPanel {
         gbc_stepNumLabel.gridy = 6;
         add(stepNumLabel, gbc_stepNumLabel);
         stepNumLabel.setPreferredSize(new Dimension(100, 23));
-        stepNumLabel.setBackground(Color.WHITE);
+        stepNumLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 
         JLabel speedLabel = new JLabel("Speed(*10ms)");
         GridBagConstraints gbc_speedLabel = new GridBagConstraints();
@@ -153,9 +147,6 @@ public class MainControlPanel extends JPanel {
 
     }
 
-    public JSlider getZoomSlider() {
-        return zoomSlider;
-    }
     public JButton getStartPauseButton() {
         return startPauseButton;
     }
@@ -171,12 +162,8 @@ public class MainControlPanel extends JPanel {
     public JComboBox getDataTypeComboBox() {
         return dataTypeComboBox;
     }
-
     public JLabel getStepNumLabel() {
         return stepNumLabel;
     }
 
-    public void setStepNumLabel(JLabel stepNumLabel) {
-        this.stepNumLabel = stepNumLabel;
-    }
 }

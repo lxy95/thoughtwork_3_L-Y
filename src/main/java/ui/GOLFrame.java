@@ -29,8 +29,6 @@ public class GOLFrame extends JFrame {
     private void initFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("GOL - Game of Life - L & Y ");
-        // game.setIconImage(new
-        // ImageIcon(ConwaysGameOfLife.class.getResource("/images/logo.png")).getImage());
         setSize(DEFAULT_WINDOW_SIZE);
         setMinimumSize(MINIMUM_WINDOW_SIZE);
         setLocation(

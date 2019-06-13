@@ -19,9 +19,7 @@ public class TipsPanel extends JPanel {
 
         buildPanel();
     }
-    /**
-     * Create the panel.
-     */
+
     public void buildPanel() {
 
         GridBagLayout gridBagLayout = new GridBagLayout();
@@ -41,7 +39,6 @@ public class TipsPanel extends JPanel {
 
         tipsTextPane = new JTextPane();
         scrollPane.setViewportView(tipsTextPane);
-
     }
 
     public JTextPane getTipsTextPane() {

@@ -1,33 +1,12 @@
 package util;
 
-import org.junit.Test; 
-import org.junit.Before; 
-import org.junit.After;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/** 
-* Util Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>Jun 12, 2019</pre> 
-* @version 1.0 
-*/ 
+
 public class UtilTest { 
 
-@Before
-public void before() throws Exception { 
-} 
-
-@After
-public void after() throws Exception { 
-} 
-
-/** 
-* 
-* Method: initMatrixFromFile(String path) 
-* 
-*/ 
 @Test
 public void testInitMatrixFromFile() throws Exception { 
 //TODO: Test goes here...

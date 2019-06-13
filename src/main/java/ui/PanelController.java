@@ -8,14 +8,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class PanelController {
-    /**
-     * 动画默认间隔200ms
-     */
     private static final int DEFAULT_DURATION = 200;
     final static String DIR = "/mnt/hgfs/Share_Ubuntu/tw/gol/configs/";
 
@@ -36,10 +31,10 @@ public class PanelController {
 
     private void buildPanels() {
         golFrame = new GOLFrame();
-        //golFrame.setPreferredSize(Demo);
         mainControlPanel = new MainControlPanel();
-        tipsPanel = new TipsPanel();
         leftPanel = new LeftPanel();
+        tipsPanel = new TipsPanel();
+        loadTipText();
 
         JTabbedPane rightPane = new JTabbedPane();
         rightPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -54,20 +49,15 @@ public class PanelController {
 
     private void loadTipText() {
         try {
-            //URL tipsURL = new URL(DIR+"tips.html");
             tipsPanel.getTipsTextPane().setPage("file://"+DIR+"tips.html");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-
     public void start() {
         ToolTipManager.sharedInstance().setInitialDelay(0);
-        loadTipText();
-
         addMainControlPanelListeners();
-
     }
 
     private void addMainControlPanelListeners() {
@@ -206,7 +196,6 @@ public class PanelController {
     }
 
     private class resetActioner implements ActionListener {
-
         public void actionPerformed(ActionEvent e) {
             thread.stop();
             mainControlPanel.getDataTypeComboBox().setSelectedIndex(0);

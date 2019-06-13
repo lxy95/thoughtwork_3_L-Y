@@ -1,35 +1,11 @@
 package model;
 
-import model.CellMatrix;
 import org.junit.Test;
-import org.junit.Before; 
-import org.junit.After;
-import util.Util;
 
 import static org.junit.Assert.assertEquals;
 
-/** 
-* CellMatrix Tester. 
-* 
-* @author <Authors name> 
-* @since <pre>Jun 12, 2019</pre> 
-* @version 1.0 
-*/ 
 public class CellMatrixTest { 
 
-@Before
-public void before() throws Exception { 
-} 
-
-@After
-public void after() throws Exception { 
-} 
-
-/** 
-* 
-* Method: transfromStates() 
-* 
-*/ 
 @Test
 public void testTransfromStates() throws Exception { 
 //TODO: Test goes here...

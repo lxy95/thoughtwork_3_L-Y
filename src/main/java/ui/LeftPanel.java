@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LeftPanel extends JPanel {
-    JPanel innerJPanel;
     final private int ROWS = 40;
     final private int COLS = 80;
     private JTextPane tipsTextPane;
