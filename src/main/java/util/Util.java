@@ -1,10 +1,7 @@
 package util;
 import model.CellMatrix;
 import java.io.*;
-/**
- * Created by L&Y
- * 工具类，从文件读测试用例
- */
+
 public class Util {
     /**
      * 函数功能：读入二维数组数据

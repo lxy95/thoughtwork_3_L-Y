@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by lenovo on 2019-06-12.
- */
 public class CellMatrix {
     //矩阵的行数
     private int rowNum;
@@ -17,23 +14,21 @@ public class CellMatrix {
         this.matrix = matrix;
     }
 
-    public void transfromStates() {
+    public void transfromStatus() {
         int[][] newMatrix = new int[rowNum][colNum];
         for (int x = 0; x < rowNum; x++) {
             for (int y = 0; y < colNum; y++) {
                 newMatrix[x][y] = 0;
                 int nearNum = findLifedNum(x, y);
-                //如果周围的状态的细胞是3，则依然存活，如果它是死的，则会复活。
                 if (nearNum == 3) {
                     newMatrix[x][y] = 1;
                 }
-                //等于2，则与上一状态一样
                 else if (nearNum == 2) {
                     newMatrix[x][y] = matrix[x][y];
                 }
             }
         }
-        matrix = newMatrix;
+        this.matrix = newMatrix;
     }
 
     //x横坐标 y纵坐标

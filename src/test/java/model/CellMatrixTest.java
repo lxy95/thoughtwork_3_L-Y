@@ -36,7 +36,7 @@ public void testTransfromStates() throws Exception {
     int[][] a = {{1,0,1},{0,1,0},{1,1,1}};
     int[][] b = {{0,1,0},{0,0,0},{1,1,1}};
     CellMatrix cellMatrix = new CellMatrix(3,3,a);
-    cellMatrix.transfromStates();
+    cellMatrix.transfromStatus();
     assertEquals(b, cellMatrix.getMatrix());
 } 
 
